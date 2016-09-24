@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="Autores" syncable="YES">
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="pertenece" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Libros" inverseName="tiene" inverseEntity="Libros" syncable="YES"/>
+    </entity>
+    <entity name="Libros" syncable="YES">
+        <attribute name="isbn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="portada" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="tiene" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Autores" inverseName="pertenece" inverseEntity="Autores" syncable="YES"/>
+    </entity>
+    <fetchRequest name="petLibro" entity="Libros" predicateString="isbn == $isbn"/>
+    <fetchRequest name="petLibros" entity="Libros"/>
+    <elements>
+        <element name="Libros" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Autores" positionX="250" positionY="-63" width="128" height="75"/>
+    </elements>
+</model>
